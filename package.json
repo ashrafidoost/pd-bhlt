@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js, jsx, css, html}\"",
     "lint": "eslint",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,15 +16,21 @@
     "url": "git+https://github.com/ashrafidoost/pd-bhlt.git"
   },
   "keywords": [],
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/ashrafidoost/pd-bhlt/issues"
   },
   "homepage": "https://github.com/ashrafidoost/pd-bhlt#readme",
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "globals": "^15.9.0",
-    "prettier": "^3.9.6"
+    "prettier": "^3.9.6",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
