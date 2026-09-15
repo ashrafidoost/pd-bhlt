@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "format": "prettier --write \"src/**/*.{js, jsx, css, html}\"",
+    "lint": "eslint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/ashrafidoost/pd-bhlt/issues"
   },
-  "homepage": "https://github.com/ashrafidoost/pd-bhlt#readme"
+  "homepage": "https://github.com/ashrafidoost/pd-bhlt#readme",
+  "devDependencies": {
+    "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.9.0",
+    "prettier": "^3.9.6"
+  }
 }
