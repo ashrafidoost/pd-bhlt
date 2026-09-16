@@ -1,4 +1,3 @@
-import React from "react";
 import { createRoot } from "react-dom/client";
 import Pizza from "./Pizza.jsx";
 
@@ -6,7 +5,11 @@ const App = () => {
   console.log(">>>>> App component rendered <<<<<");
   return (
     <div>
-      <Pizza name="Pepperoni Pizza" description="Classic Pizza with pep" />
+      <Pizza
+        name="Pepperoni Pizza"
+        description="Classic Pizza with pep"
+        style
+      />
       <Pizza
         name="Margaritta Pizza"
         description="Margariiiiiiiiiiiiiiiiiiita"
@@ -22,4 +25,4 @@ const App = () => {
 
 const container = document.getElementById("root");
 const root = createRoot(container);
-root.render(React.createElement(App));
+root.render(<App />);

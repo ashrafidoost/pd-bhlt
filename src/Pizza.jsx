@@ -1,8 +1,8 @@
 const Pizza = (props) => {
   return (
-    <div>
+    <div key={props.name + "12"}>
+      <h1>{props.name}</h1>
       <ul>
-        <li>{props.name}</li>
         <li>{props.description}</li>
       </ul>
     </div>
