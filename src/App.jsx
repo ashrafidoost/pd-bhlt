@@ -8,17 +8,24 @@ const App = () => {
       <Pizza
         name="Pepperoni Pizza"
         description="Classic Pizza with pep"
+        image={"/public/pizzas/pepperoni.webp"}
         style
       />
       <Pizza
         name="Margaritta Pizza"
         description="Margariiiiiiiiiiiiiiiiiiita"
+        image={"/public/pizzas/hawaiian.webp"}
       />
       <Pizza
         name="Persian Pizza"
         description="Pizza that modified for persian taste"
+        image={"/public/pizzas/big_meat.webp"}
       />
-      <Pizza name="Pizza Shab" description="A specific thick pizza." />
+      <Pizza
+        name="Pizza Shab"
+        description="A specific thick pizza."
+        image={"/public/pizzas/sicilian.webp"}
+      />
     </div>
   );
 };
