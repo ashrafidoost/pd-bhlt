@@ -7,7 +7,7 @@ const Pizza = (props) => {
         <img
           src={props.image}
           alt={props.name}
-          style={{ width: 100, borderRadius: 10 }}
+          style={{ width: 100, borderRadius: 20 }}
         />
       </ul>
     </div>

@@ -26,6 +26,16 @@ const App = () => {
         description="A specific thick pizza."
         image={"/public/pizzas/sicilian.webp"}
       />
+      <Pizza
+        name="Ronin"
+        description="Very thick and puffy pizza."
+        image={"/public/pizzas/classic_dlx.webp"}
+      />
+      <Pizza
+        name="Pizza Kook Makhsoos"
+        description="Kooki mooki pizza"
+        image={"/public/pizzas/calabrese.webp"}
+      />
     </div>
   );
 };
