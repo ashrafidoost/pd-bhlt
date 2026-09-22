@@ -12,11 +12,7 @@ export default function Order() {
   const [pizzaSize, setPizzaSize] = useState("M");
   const [loading, setLoading] = useState(true);
 
-  let price, selectedPizza;
-
-  if (!loading) {
-    selectedPizza = pizzaTypes.find((pizza) => pizzaType === pizza.id);
-  }
+  const selectedPizza = pizzaTypes.find((pizza) => pizzaType === pizza.id);
 
   async function fetchPizzaTypes() {
     const pizzaRes = await fetch("/api/pizzas");
@@ -90,11 +86,17 @@ export default function Order() {
           <button type="submit">Add to Cart</button>
           <div className="order-pizza">
             <Pizza
-              name="Pepperoni"
-              discription="Another pepperoni pizza"
-              image="/public/pizzas/pepperoni.webp"
+              name={selectedPizza ? selectedPizza.name : "Loading..."}
+              discription={
+                selectedPizza ? selectedPizza.discription : "Loading..."
+              }
+              image={selectedPizza ? selectedPizza.image : "Loading..."}
             />
-            <p>$15.37</p>
+            <p>
+              {selectedPizza
+                ? intl.format(selectedPizza["sizes"][pizzaSize])
+                : "Loading..."}
+            </p>
           </div>
         </div>
       </form>
