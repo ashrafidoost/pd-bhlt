@@ -22,12 +22,12 @@
   },
   "homepage": "https://github.com/ashrafidoost/pd-bhlt#readme",
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react": "^5.0.0",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "globals": "^15.9.0",
     "prettier": "^3.9.6",
-    "vite": "^8.3.0"
+    "vite": "^7.0.0"
   },
   "dependencies": {
     "react": "^18.3.1",

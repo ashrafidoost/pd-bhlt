@@ -37,7 +37,7 @@ export default function Order() {
       <form>
         <div>
           <div>
-            <label htmlFor="pizza-type">Pizza Type (Select Type):</label>
+            <label htmlFor="pizza-type">Pizza Type</label>
             <select
               name="pizza-type"
               value={pizzaType}
@@ -51,7 +51,7 @@ export default function Order() {
               ))}
             </select>
           </div>
-          <label htmlFor="pizza-size">Pizza Size (Select Size):</label>
+          <label htmlFor="pizza-size">Pizza Size</label>
           <div>
             <span>
               <input
