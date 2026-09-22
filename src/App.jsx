@@ -1,12 +1,15 @@
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import Order from "./order";
 
 const App = () => {
   console.log(">>>>> App component rendered <<<<<");
   return (
-    <div>
-      <Order />
-    </div>
+    <StrictMode>
+      <div>
+        <Order />
+      </div>
+    </StrictMode>
   );
 };
 
