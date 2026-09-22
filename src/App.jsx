@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import Order from "./order";
+import PizzaOfTheDay from "./PizzaOfTheDay";
 
 const App = () => {
   console.log(">>>>> App component rendered <<<<<");
@@ -8,6 +9,7 @@ const App = () => {
     <StrictMode>
       <div>
         <Order />
+        <PizzaOfTheDay />
       </div>
     </StrictMode>
   );
