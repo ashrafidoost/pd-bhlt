@@ -32,11 +32,12 @@ export default function Order() {
   console.log(pizzaType, pizzaSize);
   return (
     <div className="order">
-      <h2>Create Order Page</h2>
+      <h2>Order Page</h2>
+      <hr />
       <form>
         <div>
           <div>
-            <label htmlFor="pizza-type">Pizza Type</label>
+            <label htmlFor="pizza-type">Pizza Type (Select Type):</label>
             <select
               name="pizza-type"
               value={pizzaType}
@@ -50,7 +51,7 @@ export default function Order() {
               ))}
             </select>
           </div>
-          <label htmlFor="pizza-size">Pizza Size</label>
+          <label htmlFor="pizza-size">Pizza Size (Select Size):</label>
           <div>
             <span>
               <input
@@ -93,7 +94,7 @@ export default function Order() {
               discription="Another pepperoni pizza"
               image="/public/pizzas/pepperoni.webp"
             />
-            <p>$13.37</p>
+            <p>$15.37</p>
           </div>
         </div>
       </form>
