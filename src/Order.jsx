@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Pizza from "./Pizza";
+import Cart from "./Cart";
 
 const intl = new Intl.NumberFormat("en-CA", {
   style: "currency",
@@ -10,6 +11,7 @@ export default function Order() {
   const [pizzaTypes, setPizzaTypes] = useState([]);
   const [pizzaType, setPizzaType] = useState("pepperoni");
   const [pizzaSize, setPizzaSize] = useState("M");
+  const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const selectedPizza = pizzaTypes.find((pizza) => pizzaType === pizza.id);
@@ -25,19 +27,27 @@ export default function Order() {
     fetchPizzaTypes();
   }, []);
 
-  console.log(pizzaType, pizzaSize);
+  console.log(pizzaType);
+  const price = selectedPizza
+    ? intl.format(selectedPizza["sizes"][pizzaSize])
+    : "0";
+
   return (
     <div className="order">
       <h2>Order Page</h2>
       <hr />
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          setCart([...cart, { pizza: selectedPizza, size: pizzaSize, price }]);
+        }}
+      >
         <div>
           <div>
             <label htmlFor="pizza-type">Pizza Type</label>
             <select
               name="pizza-type"
               value={pizzaType}
-              style={{ width: 300 }}
               onChange={(e) => setPizzaType(e.target.value)}
             >
               {pizzaTypes.map((pizza) => (
@@ -84,22 +94,20 @@ export default function Order() {
             </span>
           </div>
           <button type="submit">Add to Cart</button>
-          <div className="order-pizza">
-            <Pizza
-              name={selectedPizza ? selectedPizza.name : "Loading..."}
-              discription={
-                selectedPizza ? selectedPizza.discription : "Loading..."
-              }
-              image={selectedPizza ? selectedPizza.image : "Loading..."}
-            />
-            <p>
-              {selectedPizza
-                ? intl.format(selectedPizza["sizes"][pizzaSize])
-                : "Loading..."}
-            </p>
-          </div>
+        </div>
+
+        <div className="order-pizza">
+          <Pizza
+            name={selectedPizza ? selectedPizza.name : "Loading..."}
+            discription={
+              selectedPizza ? selectedPizza.discription : "Loading..."
+            }
+            image={selectedPizza ? selectedPizza.image : "Loading..."}
+          />
+          <p>{selectedPizza ? price : "Loading..."}</p>
         </div>
       </form>
+      {loading ? <h2>Loading...</h2> : <Cart cart={cart} />}
     </div>
   );
 }
