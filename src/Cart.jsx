@@ -16,8 +16,8 @@ export default function Cart({ cart, checkout }) {
       <ul>
         {cart.map((item, index) => (
           <li key={index}>
-            <span className="size">{item.size}</span>
-            <span className="size">{item.pizza.name}</span>
+            <span className="size">{item.size}</span> -
+            <span className="size">{item.pizza.name}</span> -&nbsp;
             <span className="size">{item.price}</span>
           </li>
         ))}
