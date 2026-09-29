@@ -23,6 +23,7 @@ function PastOrdersRoute() {
     queryKey: ["past-order", focusedOrder],
     queryFn: () => getPastOrder(focusedOrder),
     staleTime: 86400000, // One day in miliseconds
+    enabled: !!focusedOrder,
   });
 
   if (isLoading) {
@@ -45,7 +46,11 @@ function PastOrdersRoute() {
         <tbody>
           {data.map((order) => (
             <tr key={order.order_id}>
-              <td>{order.order_id}</td>
+              <td>
+                <button onClick={() => setFocusedOrder(order.order_id)}>
+                  {order.order_id}
+                </button>
+              </td>
               <td>{order.date}</td>
               <td>{order.time}</td>
             </tr>
@@ -60,6 +65,42 @@ function PastOrdersRoute() {
           Next
         </button>
       </div>
+      {focusedOrder ? (
+        <Modal>
+          <h1>Order#: {focusedOrder} </h1>
+          {!isLoadingPastOrder ? (
+            <table>
+              <thead>
+                <tr>
+                  <td>Image</td>
+                  <td>Name</td>
+                  <td>Size</td>
+                  <td>Quantity</td>
+                  <td>Price</td>
+                  <td>Total</td>
+                </tr>
+              </thead>
+              <tbody>
+                {pastOrderData.orderItems.map((pizza) => (
+                  <tr key={`${pizza.pizzaTypeId}_${pizza.size}`}>
+                    <td>
+                      <img src={pizza.image} alt={pizza.name} />
+                    </td>
+                    <td>{pizza.name}</td>
+                    <td>{pizza.size}</td>
+                    <td>{pizza.quantity}</td>
+                    <td>{priceConverter(pizza.price)}</td>
+                    <td>{priceConverter(pizza.total)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p>Loading...</p>
+          )}
+          <button onClick={() => setFocusedOrder()}>Close</button>
+        </Modal>
+      ) : null}
     </div>
   );
 }

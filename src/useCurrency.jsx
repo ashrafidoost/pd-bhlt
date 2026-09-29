@@ -6,6 +6,9 @@ const intl = new Intl.NumberFormat("en-US", {
 export const priceConverter = (price) => {
   intl.format(price);
 };
+
+/*
 export default function useCurrency(price) {
   return priceConverter(price);
 }
+*/
