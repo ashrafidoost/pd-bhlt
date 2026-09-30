@@ -1,6 +1,8 @@
-import { render } from "@testing-library/react";
-import { expect, test } from "vitest";
+import { render, cleanup } from "@testing-library/react";
+import { expect, test, afterEach } from "vitest";
 import Pizza from "../Pizza";
+
+afterEach(cleanup);
 
 test("alt test renders on Pizza image", async () => {
   const name = "My Favorite Pizza";

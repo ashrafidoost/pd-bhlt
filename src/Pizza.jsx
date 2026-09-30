@@ -5,7 +5,7 @@ const Pizza = (props) => {
       <ul>
         <li>{props.description}</li>
         <img
-          src={props.image}
+          src={props.image ? props.image : "http://picsum.photos/200"}
           alt={props.name}
           style={{ width: 150, borderRadius: 20 }}
         />
