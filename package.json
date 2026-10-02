@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js, jsx, css, html}\"",
     "lint": "eslint",
-    "test": "vitest"
+    "test": "vitest",
+    "coverage": "vitest --coverage"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "@tanstack/router-plugin": "^1.65.0",
     "@testing-library/react": "^16.0.1",
     "@vitejs/plugin-react": "^5.0.0",
+    "@vitest/coverage-v8": "^4.1.11",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "globals": "^15.9.0",
