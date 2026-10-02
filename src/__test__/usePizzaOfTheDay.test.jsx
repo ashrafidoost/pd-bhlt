@@ -15,13 +15,13 @@ const testPizza = {
   size: { S: 12.25, M: 16.25, L: 20.25 },
 };
 
-test("gives null when first called", async () => {
+test("gives null when  called", async () => {
   fetch.mockResponseOnce(JSON.stringify(testPizza));
   const { result } = renderHook(() => usePizzaOfTheDay());
   expect(result.current).toBeNull();
 });
 
-test("To call the APi and gave back the pizaa of the day", async () => {
+test("To call the APi pizaa of the day", async () => {
   fetch.mockResponseOnce(JSON.stringify(testPizza));
   const { result } = renderHook(() => usePizzaOfTheDay());
   await waitFor(() => {

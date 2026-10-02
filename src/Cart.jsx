@@ -12,7 +12,7 @@ export default function Cart({ cart, checkout }) {
 
   return (
     <div className="cart">
-      <h2>Cart</h2>
+      <h2>Dart</h2>
       <ul>
         {cart.map((item, index) => (
           <li key={index}>
