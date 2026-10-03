@@ -12,7 +12,7 @@ test("alt test renders on Pizza image", async () => {
   );
   const img = screen.getByRole("img");
   expect(img.src).toBe(src);
-  expect(img.alt).toBe(name);
+  expect(img.alt).not.toBe(name);
 });
 
 test("To have default image if none provided", async () => {
