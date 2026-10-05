@@ -1,0 +1,27 @@
+import { defineWorkspace } from "vitest/config";
+import { playwright } from "@vitest/browser-playwright";
+
+export default defineWorkspace([
+  {
+    extends: "./vitest.config.js",
+    test: {
+      name: "happy-dom",
+      include: ["**/*.node.test.{js,jsx}"],
+      environment: "happy-dom",
+    },
+  },
+
+  {
+    extends: "./vitest.config.js",
+    test: {
+      name: "browser",
+      include: ["**/*.browser.test.{js,jsx}"],
+      setupFiles: ["vitest-browser-react"],
+      browser: {
+        enabled: true,
+        provider: playwright(),
+        instances: [{ browser: "chromium" }],
+      },
+    },
+  },
+]);
