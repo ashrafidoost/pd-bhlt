@@ -37,6 +37,7 @@ export default defineConfig({
 
   test: {
     coverage: {
+      provider: "istanbul",
       reporter: ["text", "json", "html"],
     },
 
@@ -48,6 +49,10 @@ export default defineConfig({
           name: "happy-dom",
           include: ["**/*.node.test.{js,jsx}"],
           environment: "happy-dom",
+          coverage: {
+            provider: "istanbul",
+            reporter: ["text", "json", "html"],
+          },
         },
       },
 
@@ -59,13 +64,17 @@ export default defineConfig({
           include: ["**/*.browser.test.{js,jsx}"],
 
           setupFiles: ["vitest-browser-react"],
+          coverage: {
+            provider: "istanbul",
+            reporter: ["text", "json", "html"],
+          },
 
           browser: {
             enabled: true,
             provider: playwright(),
             instances: [
               {
-                browser: "chromium",
+                browser: "firefox",
               },
             ],
           },
