@@ -36,10 +36,11 @@ function PastOrdersRoute() {
   });
 
   if (isLoading) {
-    return;
-    <div className="past-orders">
-      <h2>LOADING....</h2>
-    </div>;
+    return (
+      <div className="past-orders">
+        <h2> LOADING....</h2>
+      </div>
+    );
   }
 
   return (
