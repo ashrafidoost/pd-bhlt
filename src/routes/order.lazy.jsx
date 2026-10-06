@@ -44,21 +44,19 @@ function Order() {
     fetchPizzaTypes();
   }, []);
 
-  console.log(pizzaType);
   const price = selectedPizza
     ? intl.format(selectedPizza["sizes"][pizzaSize])
     : "0";
+
+  function addToCart() {
+    setCart([...cart, { pizza: selectedPizza, size: pizzaSize, price }]);
+  }
 
   return (
     <div className="order">
       <h2>Order Page</h2>
       <hr />
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          setCart([...cart, { pizza: selectedPizza, size: pizzaSize, price }]);
-        }}
-      >
+      <form action={addToCart}>
         <div>
           <div>
             <label htmlFor="pizza-type">Pizza Type</label>
